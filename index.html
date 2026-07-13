@@ -76,16 +76,16 @@
 
   /* ---------- Hero / Customizer ---------- */
   .hero{
-    max-width:1150px; /* Expanded slightly to give both sections more breathing room */
+    max-width:1100px;
     margin:0 auto;
     padding:24px 32px 80px;
     display:grid;
-    grid-template-columns:1.2fr 0.8fr; /* Made the left side wider so all swatches fit in a line */
-    gap:48px;
+    grid-template-columns:1fr 1.05fr;
+    gap:56px;
     align-items:start;
     position:relative;
   }
-  @media (max-width:920px){
+  @media (max-width:860px){
     .hero{ grid-template-columns:1fr; gap:36px; }
   }
 
@@ -138,7 +138,7 @@
   .intro p.sub{
     color:var(--card);
     font-size:15px;
-    max-width:55ch;
+    max-width:44ch;
     margin-bottom:28px;
     font-weight:500;
   }
@@ -184,14 +184,9 @@
     border-radius:24px;
     padding:22px 22px 26px;
     margin-bottom:20px;
-    width: 100%;
   }
   .swatch-card .label{ margin-bottom:12px; display:block; color:var(--logo-pink); }
-  .swatches{ 
-    display:flex; 
-    flex-wrap:wrap; 
-    gap:12px; /* Tweaked spacing slightly to ensure perfect single-row alignment */
-  }
+  .swatches{ display:flex; flex-wrap:wrap; gap:14px; }
   .swatch{
     display:flex;
     flex-direction:column;
@@ -202,7 +197,6 @@
     cursor:pointer;
     padding:2px;
     font-family:'Quicksand', sans-serif;
-    width: 58px; /* Fixed width prevents shifting text layout sizes */
   }
   .skein{
     width:44px;
@@ -228,13 +222,7 @@
   .swatch.active .skein{
     box-shadow:0 0 0 2px var(--cream), 0 0 0 4px var(--logo-pink), 0 2px 4px rgba(107,36,71,0.18);
   }
-  .swatch span{ 
-    font-size:11px; 
-    font-weight:600; 
-    color:var(--ink);
-    text-align:center;
-    white-space: nowrap;
-  }
+  .swatch span{ font-size:11px; font-weight:600; color:var(--ink); }
 
   .order-btn{
     display:inline-flex;
@@ -391,6 +379,11 @@
 </footer>
 
 <script>
+  // ---------------------------------------------------------------
+  // EDIT THIS: only list yarn colours you actually have in stock.
+  // "name" shows on the swatch label and gets sent in the WhatsApp
+  // message. "hex" is the colour swatch shown to the customer.
+  // ---------------------------------------------------------------
   const YARN_COLORS = [
     { name: "Purple",      hex: "#9b29aa" },
     { name: "Orange",      hex: "#D06A12" },
@@ -401,8 +394,14 @@
     { name: "Yellow",      hex: "#F0D97A" }
   ];
 
+  // EDIT THIS: your WhatsApp number, digits only, country code first,
+  // no + or spaces (e.g. Malaysia number 012-345 6789 -> "60123456789")
   const WHATSAPP_NUMBER = "60182250331";
+
   const PRODUCT_NAME = "Foldable Flower Cup Holder";
+
+  // EDIT THIS: opening promo price. Update or remove once the promo ends.
+  //const PROMO_PRICE = "RM 20";
 
   let selectedPetal = YARN_COLORS.find(c => c.name === "Dusty Pink") || YARN_COLORS[0];
   let selectedCenter = YARN_COLORS.find(c => c.name === "Hot Pink") || YARN_COLORS[1];
